@@ -10,7 +10,7 @@ interface ResumeButtonProps {
 export default function ResumeButton({ isDark }: ResumeButtonProps) {
   return (
     <a
-      href="/SHAHINALI - Resume.pdf"
+      href="/SHAHINALI - RESUME.pdf"
       download="Shahin_Ali_Resume.pdf"
       target="_blank"
       rel="noopener noreferrer"
