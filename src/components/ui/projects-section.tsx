@@ -230,7 +230,17 @@ export default function ProjectsSection({ isDark }: ProjectsSectionProps) {
       status: "Ongoing",
       technologies: ["FastAPI", "Python", "Whisper", "FAISS", "SentenceTransformers", "SQLite", "SQLAlchemy", "yt-dlp", "FFmpeg", "Chrome Extension API"],
       description:
-        "A transcript-grounded semantic retrieval system that processes lecture videos into structured embeddings, enabling fast vector-based search and hallucination-free question answering through a multi-stage ingestion and retrieval pipeline.",
+        "AI-powered lecture intelligence platform that transcribes YouTube videos, embeds transcripts into a FAISS vector store, and answers natural-language questions with grounded, hallucination-free responses. Features a Chrome extension, multi-session management, and a full-stack dashboard for real-time Q&A.",
+      github: "https://github.com/shaaahin-ali",
+    },
+    {
+      title: "TenderLens",
+      role: "Solo Developer",
+      duration: "3 Months",
+      status: "Completed",
+      technologies: ["Python", "FastAPI", "Hugging Face", "RAG", "Next.js", "TypeScript", "Tailwind CSS", "Render", "Vercel"],
+      description:
+        "Automated RFP compliance validator that parses tender documents, runs clause-by-clause analysis against compliance rules using RAG + Hugging Face Inference API, and generates structured pass/fail reports — slashing manual review time from hours to seconds.",
       github: "https://github.com/shaaahin-ali",
     },
     {
@@ -240,7 +250,7 @@ export default function ProjectsSection({ isDark }: ProjectsSectionProps) {
       status: "Completed",
       technologies: ["FastAPI", "Python", "Next.js", "TypeScript", "PostgreSQL", "SQLite", "JWT", "Docker", "SMTP"],
       description:
-        "Designed and implemented a scalable disaster response platform enabling real-time emergency request handling, location-based volunteer coordination, and secure role-based access using modular API architecture and containerized deployment.",
+        "Scalable disaster response coordination platform enabling real-time emergency request handling, geo-based volunteer matching, admin dashboards, and secure role-based access — deployed end-to-end on Docker with automated email notifications.",
       github: "https://github.com/shaaahin-ali",
       live: "https://disaster-relief-lake.vercel.app/",
     },
@@ -251,7 +261,7 @@ export default function ProjectsSection({ isDark }: ProjectsSectionProps) {
       status: "Completed",
       technologies: ["JavaScript", "Chrome Extension API", "Manifest V3", "Cloudflare Workers", "Hugging Face Inference API"],
       description:
-        "Built a Chrome extension that detects deepfake media in real time by capturing webpage images, processing them through a Cloudflare Worker backend, and performing AI-based analysis using Hugging Face models to deliver confidence-scored alerts.",
+        "Chrome extension that intercepts media on any webpage, routes images through a Cloudflare Worker proxy, and runs deepfake classification via Hugging Face models — returning confidence-scored alerts inline without any user data leaving the browser.",
       github: "https://github.com/shaaahin-ali",
     },
   ];

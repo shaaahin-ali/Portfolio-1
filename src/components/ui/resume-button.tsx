@@ -10,7 +10,8 @@ interface ResumeButtonProps {
 export default function ResumeButton({ isDark }: ResumeButtonProps) {
   return (
     <a
-      href="https://drive.google.com/file/d/YOUR_RESUME_ID/view"
+      href="/SHAHINALI - Resume.pdf"
+      download="Shahin_Ali_Resume.pdf"
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-8 right-8 z-50 flex items-center gap-2 px-5 py-3 rounded-full text-sm font-bold tracking-wide transition-all duration-500 hover:scale-105 hover:shadow-xl group"

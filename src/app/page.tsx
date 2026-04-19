@@ -8,7 +8,7 @@ import Marquee from "@/components/ui/marquee";
 import AboutSection from "@/components/ui/about-section";
 import StatsBar from "@/components/ui/stats-bar";
 import SkillsSection from "@/components/ui/skills-section";
-import ProjectsSection from "@/components/ui/projects-section";
+import ProjectGallerySection from "@/components/ui/project-gallery-section";
 import ExperienceSection from "@/components/ui/experience-section";
 import EducationSection from "@/components/ui/education-section";
 import ContactSection from "@/components/ui/contact-section";
@@ -55,7 +55,7 @@ export default function Home() {
       <AboutSection isDark={isDark} />
       <StatsBar isDark={isDark} />
       <SkillsSection isDark={isDark} />
-      <ProjectsSection isDark={isDark} />
+      <ProjectGallerySection isDark={isDark} />
       <ExperienceSection isDark={isDark} />
       <EducationSection isDark={isDark} />
       <ContactSection isDark={isDark} />
