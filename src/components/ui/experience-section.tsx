@@ -123,6 +123,12 @@ export default function ExperienceSection({ isDark }: ExperienceSectionProps) {
 
   const experiences = [
     {
+      title: "Ambience Manager",
+      subtitle: "Excel MEC 2026",
+      description: "Directed visual aesthetics and environmental design for Excel 2026, the annual techno-cultural festival of Model Engineering College, expanding upon previous operational leadership as Events Head.",
+      icon: <Briefcase className="w-5 h-5" />,
+    },
+    {
       title: "Chief Publicity Officer",
       subtitle: "IEDC MEC 2025",
       description: "Managed publicity for startup events at Innovation & Entrepreneurship Development Centre, creating impactful campaigns and strategies for maximum outreach.",
