@@ -152,10 +152,16 @@ export default function ExperienceSection({ isDark }: ExperienceSectionProps) {
       description: "Completed certification covering core programming concepts and hands-on problem solving in Python through the Kaggle learning platform.",
       icon: <BookOpen className="w-5 h-5" />,
     },
+    {
+      title: "IEEE MAGIC 3.0 Hackathon — Top 3",
+      subtitle: "IEEE · 24-Hour Hackathon",
+      description: "Secured a Top 3 finish at IEEE MAGIC 3.0 Hackathon, building a library management system from scratch within 24 hours in a team of 4.",
+      icon: <Trophy className="w-5 h-5" />,
+    },
   ];
 
   const achievements = [
-    "Participated in IEEE MAGIC 3.0 Hackathon — developed a library management system within 24 hours in a team of 4",
+    "Top 3 at IEEE MAGIC 3.0 Hackathon — built a library management system from scratch within 24 hours in a team of 4",
     "Active member of Design & Management Team, Excel MEC (2025–Present)",
     "Member of Design Team, IEDC MEC (2024) — designed promotional posters and visual assets",
     "Completed 3-day NLP Workshop conducted by ICFOSS",

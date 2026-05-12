@@ -169,7 +169,7 @@ export default function AboutSection({ isDark }: AboutSectionProps) {
               >
                 I&apos;m a <span style={{ color: "#C3E41D", fontWeight: 600 }}>B.Tech Computer Science Engineering</span> student 
                 at <span style={{ color: "#C3E41D", fontWeight: 600 }}>Govt. Model Engineering College, Kochi</span> (KTU) 
-                with a CGPA of <span style={{ color: "#C3E41D", fontWeight: 600 }}>9.39</span>.
+                with a CGPA of <span style={{ color: "#C3E41D", fontWeight: 600 }}>9.2</span>.
               </p>
 
               <p
@@ -180,9 +180,9 @@ export default function AboutSection({ isDark }: AboutSectionProps) {
                 }}
               >
                 I&apos;m passionate about building intelligent systems at the intersection of 
-                <span style={{ color: "#C3E41D", fontWeight: 600 }}> AI, web development, and real-world problem solving</span>. 
-                From semantic retrieval systems to disaster response platforms and deepfake detection — 
-                I love turning complex problems into elegant solutions.
+                <span style={{ color: "#C3E41D", fontWeight: 600 }}>AI engineering, RAG pipelines, and full-stack development</span>. 
+                From semantic retrieval systems and vector-grounded Q&A to disaster response platforms and deepfake detection — 
+                I love turning complex problems into elegant, production-ready solutions.
               </p>
 
               <p

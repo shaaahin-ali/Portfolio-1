@@ -160,7 +160,7 @@ export default function EducationSection({ isDark }: EducationSectionProps) {
       degree: "B.Tech in Computer Science Engineering",
       board: "KTU",
       location: "Kochi, Kerala",
-      score: "9.39",
+      score: "9.2",
       year: "2023 — 2027",
     },
     {

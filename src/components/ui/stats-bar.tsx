@@ -99,9 +99,9 @@ export default function StatsBar({ isDark }: StatsBarProps) {
     >
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-          <StatCounter end={3} suffix="+" label="Projects Built" isDark={isDark} delay={0} />
+          <StatCounter end={4} suffix="+" label="Projects Built" isDark={isDark} delay={0} />
           <StatCounter end={15} suffix="+" label="Technologies" isDark={isDark} delay={150} />
-          <StatCounter end={9} suffix=".39" label="CGPA Score" isDark={isDark} delay={300} />
+          <StatCounter end={9} suffix=".2" label="CGPA Score" isDark={isDark} delay={300} />
           <StatCounter end={4} suffix="+" label="Certifications" isDark={isDark} delay={450} />
         </div>
       </div>

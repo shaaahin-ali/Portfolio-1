@@ -8,6 +8,8 @@ import {
   Github,
   Clock,
   ArrowUpRight,
+  Lightbulb,
+  Zap,
 } from "lucide-react";
 
 /* ═══════════════════════════════════════════════════════════════════════════════
@@ -29,11 +31,14 @@ interface ShowcaseProject {
   status: "Ongoing" | "Completed";
   technologies: string[];
   overview: string;
+  challenge: string;
+  problemSolving: string[];
   highlights: string[];
   images: ProjectImage[];
   github?: string;
   live?: string;
   accent: string;
+  featured?: boolean;
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════════
@@ -50,6 +55,7 @@ const PROJECTS: ShowcaseProject[] = [
     duration: "Ongoing",
     status: "Ongoing",
     accent: "#C3E41D",
+    featured: true,
     technologies: [
       "FastAPI",
       "Python",
@@ -65,6 +71,14 @@ const PROJECTS: ShowcaseProject[] = [
     ],
     overview:
       "A transcript-grounded semantic retrieval system that transcribes YouTube lecture videos, chunks and encodes them into a FAISS vector store, and answers natural-language questions with grounded, hallucination-free responses. A companion Chrome extension lets students query any lecture without leaving their browser.",
+    challenge:
+      "Students waste hours rewatching lectures to find specific explanations. Existing search is keyword-based and useless for conceptual queries like 'explain the difference between TCP and UDP'.",
+    problemSolving: [
+      "Designed a multi-stage ingestion pipeline (audio → transcript → chunks → embeddings) to handle hour-long lectures without memory overflow",
+      "Solved hallucination by enforcing strict transcript grounding — the model can only cite what was actually said",
+      "Built a chunking strategy that preserves semantic context across sentence boundaries for accurate retrieval",
+      "Overcame Chrome Extension MV3 service worker limitations for persistent background processing",
+    ],
     highlights: [
       "Multi-stage ingestion pipeline — audio → transcript → embeddings → FAISS index",
       "RAG-based Q&A with source attribution and timestamps",
@@ -80,46 +94,6 @@ const PROJECTS: ShowcaseProject[] = [
       { src: "/projects/seekright/landing.jpeg", caption: "Landing Page" },
     ],
     github: "https://github.com/shaaahin-ali",
-  },
-  {
-    id: "edubot",
-    title: "EduBot",
-    tagline: "AI-Powered WhatsApp CRM & Assistant",
-    role: "Solo Developer",
-    duration: "2 Months",
-    status: "Completed",
-    accent: "#10B981",
-    technologies: [
-      "FastAPI",
-      "Python",
-      "Groq LLM",
-      "FAISS",
-      "SentenceTransformers",
-      "RAG",
-      "Twilio API",
-      "SQLAlchemy",
-      "Whisper",
-      "WhatsApp Business",
-    ],
-    overview:
-      "A high-performance WhatsApp AI assistant and CRM built for educational institutions. EduBot automates 80%+ of routine student inquiries, captures leads through natural conversation, and guides prospects through a structured enrollment funnel — all within WhatsApp. Features multi-modal input (text & voice), dynamic FOMO discount injections for conversion optimization, and real-time sentiment-driven escalation to human counsellors.",
-    highlights: [
-      "RAG engine with FAISS vector store for hallucination-free, data-grounded responses",
-      "Real-time voice note transcription and contextual processing pipeline",
-      "Dynamic FOMO discount injection engine boosting conversion rates",
-      "Sentiment & intent classification via Groq LLMs for contextual handling",
-      "Multi-step enrollment funnel with persistent session state management",
-      "Automated escalation protocol for high-intent / complex conversations",
-      "Built-in admin dashboard for lead tracking and funnel analytics",
-    ],
-    images: [
-      { src: "/projects/edubot/chat-flow.png", caption: "Conversational AI Flow" },
-      { src: "/projects/edubot/dashboard.png", caption: "Admin CRM Dashboard" },
-      { src: "/projects/edubot/architecture.png", caption: "System Architecture" },
-      { src: "/projects/edubot/voice-processing.png", caption: "Voice Note Processing" },
-      { src: "/projects/edubot/enrollment-funnel.png", caption: "Enrollment Funnel" },
-    ],
-    github: "https://github.com/shaaahin-ali/EduBot",
   },
   {
     id: "tenderlens",
@@ -142,6 +116,14 @@ const PROJECTS: ShowcaseProject[] = [
     ],
     overview:
       "Automates the tedious process of RFP compliance review. Parses uploaded tender documents, runs clause-by-clause analysis against compliance rules using a RAG pipeline backed by Hugging Face models, and produces structured pass/fail reports — cutting review time from hours to seconds.",
+    challenge:
+      "Government tender reviews take 4-8 hours per document. Manual clause matching is error-prone and costs organizations thousands in missed compliance issues.",
+    problemSolving: [
+      "Built a PDF parsing pipeline that handles inconsistent formatting, tables, and multi-column layouts in government documents",
+      "Designed vector-based rule matching that maps extracted clauses to compliance criteria with semantic similarity, not keyword matching",
+      "Solved the cold-start latency problem on free-tier Hugging Face by implementing request queuing and retry logic",
+      "Created a scoring algorithm that distinguishes between full, partial, and non-compliance with explainable verdicts",
+    ],
     highlights: [
       "PDF parsing and clause extraction pipeline",
       "RAG pipeline with vector-based rule matching",
@@ -180,6 +162,14 @@ const PROJECTS: ShowcaseProject[] = [
     ],
     overview:
       "A real-time disaster response platform connecting citizens who need help with trained volunteers. Supports multi-role dashboards (admin / volunteer / public), geo-based matching to dispatch the nearest available responder, and automated email notifications.",
+    challenge:
+      "During Kerala floods, coordination between volunteers and victims was chaotic — no centralized system existed to match responders by proximity, skill, and availability in real time.",
+    problemSolving: [
+      "Implemented a geo-aware matching algorithm using Haversine distance to dispatch the nearest qualified volunteer within seconds",
+      "Designed a role-based access control system with JWT that cleanly separates admin, volunteer, and public citizen permissions",
+      "Solved real-time status tracking across distributed volunteers with optimistic UI updates and background sync",
+      "Containerized the full stack with Docker Compose for one-command deployment across dev, staging, and production",
+    ],
     highlights: [
       "Role-based access: Admin, Volunteer, Public citizen",
       "Real-time emergency request board with status tracking",
@@ -216,6 +206,13 @@ const PROJECTS: ShowcaseProject[] = [
     ],
     overview:
       "A Chrome extension that passively monitors media on any webpage and flags AI-generated or manipulated images in real time. Frames are routed through a Cloudflare Worker proxy to a Hugging Face deepfake classification model, and confidence-scored verdicts are displayed inline.",
+    challenge:
+      "Deepfake images spread virally on social media with no way for average users to verify authenticity without technical ML knowledge.",
+    problemSolving: [
+      "Solved CORS and API key exposure by routing inference through a Cloudflare Worker edge proxy",
+      "Optimized image capture in content scripts to handle dynamic DOM mutations without performance degradation",
+      "Designed a zero-storage, privacy-first architecture — no images are persisted, all analysis is ephemeral",
+    ],
     highlights: [
       "Inline image capture via content script (Manifest V3)",
       "Cloudflare Worker edge proxy for secure model calls",
@@ -538,7 +535,12 @@ function ProjectShowcase({ project, isDark, index }: ShowcaseProps) {
         transition: `opacity 1s cubic-bezier(0.16,1,0.3,1) ${index * 100}ms,
                      transform 1s cubic-bezier(0.16,1,0.3,1) ${index * 100}ms`,
         backgroundColor: isDark ? "hsl(0 0% 3.5%)" : "hsl(0 0% 97%)",
-        border: `1px solid ${isDark ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.06)"}`,
+        border: project.featured
+          ? `1px solid ${isDark ? `${a}25` : `${a}35`}`
+          : `1px solid ${isDark ? "rgba(255,255,255,0.04)" : "rgba(0,0,0,0.06)"}`,
+        boxShadow: project.featured
+          ? `0 0 60px ${a}08, 0 0 120px ${a}04`
+          : undefined,
       }}
     >
       {/* ── Mouse-tracking glow overlay ── */}
@@ -587,6 +589,24 @@ function ProjectShowcase({ project, isDark, index }: ShowcaseProps) {
 
           {/* ─── Info column ─── */}
           <div className={`space-y-5 ${flip ? "lg:[direction:ltr]" : ""}`}>
+            {/* Featured badge */}
+            {project.featured && (
+              <div
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-[0.2em]"
+                style={{
+                  backgroundColor: `${a}15`,
+                  color: a,
+                  border: `1px solid ${a}30`,
+                  opacity: visible ? 1 : 0,
+                  transform: visible ? "translateY(0)" : "translateY(10px)",
+                  transition: "all 0.5s ease 150ms",
+                }}
+              >
+                <Zap className="w-3 h-3" />
+                Featured Project
+              </div>
+            )}
+
             {/* Role badge line */}
             <div
               className="flex items-center gap-3"
@@ -678,6 +698,37 @@ function ProjectShowcase({ project, isDark, index }: ShowcaseProps) {
               ))}
             </div>
 
+            {/* The Challenge — problem statement box */}
+            <div
+              className="rounded-xl p-4"
+              style={{
+                backgroundColor: isDark ? `${a}06` : `${a}08`,
+                border: `1px solid ${isDark ? `${a}15` : `${a}20`}`,
+                opacity: visible ? 1 : 0,
+                transform: visible ? "translateY(0)" : "translateY(12px)",
+                transition: "all 0.7s ease 440ms",
+              }}
+            >
+              <div className="flex items-center gap-2 mb-2">
+                <Lightbulb className="w-3.5 h-3.5" style={{ color: a }} />
+                <h4
+                  className="text-[10px] uppercase tracking-[0.3em] font-bold"
+                  style={{ color: a }}
+                >
+                  The Challenge
+                </h4>
+              </div>
+              <p
+                className="text-[13px] leading-[1.7] italic"
+                style={{
+                  fontFamily: "'Antic', sans-serif",
+                  color: isDark ? "hsl(0 0% 55%)" : "hsl(0 0% 40%)",
+                }}
+              >
+                {project.challenge}
+              </p>
+            </div>
+
             {/* Overview */}
             <p
               className="text-[15px] leading-[1.75]"
@@ -692,11 +743,55 @@ function ProjectShowcase({ project, isDark, index }: ShowcaseProps) {
               {project.overview}
             </p>
 
+            {/* How I Solved It — problem-solving section */}
+            <div
+              style={{
+                opacity: visible ? 1 : 0,
+                transition: "opacity 0.5s ease 480ms",
+              }}
+            >
+              <div className="flex items-center gap-2 mb-3">
+                <Zap className="w-3.5 h-3.5" style={{ color: a }} />
+                <h4
+                  className="text-[10px] uppercase tracking-[0.3em] font-bold"
+                  style={{ color: a }}
+                >
+                  How I Solved It
+                </h4>
+              </div>
+              <ul className="space-y-2">
+                {project.problemSolving.map((ps, psi) => (
+                  <li
+                    key={psi}
+                    className="flex items-start gap-2.5 text-[13px]"
+                    style={{
+                      opacity: visible ? 1 : 0,
+                      transform: visible ? "translateX(0)" : "translateX(-10px)",
+                      transition: `all 0.45s ease ${520 + psi * 70}ms`,
+                    }}
+                  >
+                    <span
+                      className="mt-[6px] w-1.5 h-1.5 rounded-sm flex-shrink-0 rotate-45"
+                      style={{ backgroundColor: a }}
+                    />
+                    <span
+                      style={{
+                        color: isDark ? "hsl(0 0% 58%)" : "hsl(0 0% 40%)",
+                        lineHeight: 1.65,
+                      }}
+                    >
+                      {ps}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
             {/* Highlights */}
             <div
               style={{
                 opacity: visible ? 1 : 0,
-                transition: "opacity 0.5s ease 500ms",
+                transition: "opacity 0.5s ease 600ms",
               }}
             >
               <h4
@@ -713,7 +808,7 @@ function ProjectShowcase({ project, isDark, index }: ShowcaseProps) {
                     style={{
                       opacity: visible ? 1 : 0,
                       transform: visible ? "translateX(0)" : "translateX(-10px)",
-                      transition: `all 0.45s ease ${550 + hi * 70}ms`,
+                      transition: `all 0.45s ease ${650 + hi * 70}ms`,
                     }}
                   >
                     <span
@@ -736,7 +831,7 @@ function ProjectShowcase({ project, isDark, index }: ShowcaseProps) {
             <div
               style={{
                 opacity: visible ? 1 : 0,
-                transition: "opacity 0.5s ease 650ms",
+                transition: "opacity 0.5s ease 750ms",
               }}
             >
               <h4
@@ -762,7 +857,7 @@ function ProjectShowcase({ project, isDark, index }: ShowcaseProps) {
                       }`,
                       opacity: visible ? 1 : 0,
                       transform: visible ? "translateY(0)" : "translateY(6px)",
-                      transition: `all 0.35s ease ${700 + ti * 35}ms`,
+                      transition: `all 0.35s ease ${800 + ti * 35}ms`,
                     }}
                   >
                     {t}
@@ -777,7 +872,7 @@ function ProjectShowcase({ project, isDark, index }: ShowcaseProps) {
               style={{
                 opacity: visible ? 1 : 0,
                 transform: visible ? "translateY(0)" : "translateY(8px)",
-                transition: "all 0.6s ease 800ms",
+                transition: "all 0.6s ease 900ms",
               }}
             >
               {project.github && (
@@ -983,8 +1078,8 @@ export default function ProjectGallerySection({ isDark }: Props) {
               color: isDark ? "hsl(0 0% 48%)" : "hsl(0 0% 45%)",
             }}
           >
-            A deep dive into each project — browse the screenshots, explore the
-            stack, and see what makes it tick.
+            A deep dive into each project — the problems I tackled, how I
+            solved them, and the engineering decisions behind every build.
           </p>
         </div>
 
