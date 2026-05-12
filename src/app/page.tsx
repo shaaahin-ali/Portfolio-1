@@ -12,7 +12,7 @@ import ProjectGallerySection from "@/components/ui/project-gallery-section";
 import ExperienceSection from "@/components/ui/experience-section";
 import EducationSection from "@/components/ui/education-section";
 import ContactSection from "@/components/ui/contact-section";
-import ResumeButton from "@/components/ui/resume-button";
+
 
 export default function Home() {
   const [isDark, setIsDark] = useState(true);
@@ -60,7 +60,6 @@ export default function Home() {
       <EducationSection isDark={isDark} />
       <ContactSection isDark={isDark} />
 
-      <ResumeButton isDark={isDark} />
     </div>
   );
 }
